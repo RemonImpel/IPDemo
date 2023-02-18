@@ -5,6 +5,12 @@ import androidx.compose.material.MaterialTheme
 import androidx.compose.material.darkColors
 import androidx.compose.material.lightColors
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.res.colorResource
+import androidx.compose.ui.text.TextStyle
+import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.style.TextAlign
+import androidx.compose.ui.unit.sp
 
 private val DarkColorPalette = darkColors(
     primary = Purple200,
@@ -42,3 +48,23 @@ fun IPDemoTheme(darkTheme: Boolean = isSystemInDarkTheme(), content: @Composable
         content = content
     )
 }
+
+val bodyXSBoldTextStyle = TextStyle(
+    fontFamily = fontRoboto,
+    fontSize = 16.sp,
+    color = ColorTextPrimary,
+    fontWeight = FontWeight.W700,
+    lineHeight = 23.sp,
+    letterSpacing = .5.sp,
+    textAlign = TextAlign.Left
+)
+
+val darkButtonTextStyle = TextStyle(
+    fontFamily = fontRoboto,
+    fontSize = 16.sp,
+    color = Color.White,
+    fontWeight = FontWeight.Bold,
+    lineHeight = 23.sp,
+    letterSpacing = .5.sp,
+    textAlign = TextAlign.Left,
+)

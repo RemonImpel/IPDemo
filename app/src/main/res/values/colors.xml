@@ -10,4 +10,5 @@
 
     <color name="default_text_color">#021561</color>
     <color name="default_icon_color">#005DFF</color>
+    <color name="slected_language_bg_color">#F6FCFC</color>
 </resources>
