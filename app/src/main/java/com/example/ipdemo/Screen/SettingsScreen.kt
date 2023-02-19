@@ -259,7 +259,7 @@ fun SettingsScreen(
                 )
 
                 customItemCard(
-                    title = Constants.report_problem,
+                    title = Constants.report_a_problem,
                     R.drawable.report,
                     cardElevation,
                     navController
@@ -362,8 +362,16 @@ fun customItemCard(
                     navController.navigate(Screens.CHANGELOG.name)
                 }
 
-                if(title == Constants.help_and_contact){
+                if (title == Constants.help_and_contact) {
                     navController.navigate(Screens.HELPCONTACT.name)
+                }
+
+                if (title == Constants.faq) {
+                    navController.navigate(Screens.FAQ.name)
+                }
+
+                if (title == Constants.report_a_problem) {
+                    navController.navigate(Screens.REPORTPROBLEM.name)
                 }
             },
         shape = RoundedCornerShape(16.dp),
@@ -631,7 +639,7 @@ fun notificationDeniedDialog(
                     Image(
                         painter = painterResource(id = R.drawable.ip_police_ok),
                         contentDescription = "",
-                        modifier = Modifier.height((ScreenSize.height()/3).dp),
+                        modifier = Modifier.height((ScreenSize.height() / 3).dp),
                         contentScale = ContentScale.Crop
                     )
 

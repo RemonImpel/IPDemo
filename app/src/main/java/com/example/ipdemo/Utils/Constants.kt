@@ -6,7 +6,8 @@ object Constants {
     val notifications = "notifications"
     val faq = "F.A.Q"
     val help_and_contact = "help and contact"
-    val report_problem = "report a problem"
+    val report_a_problem = "report a problem"
+    val report_problem = "report problem"
     val terms_of_use = "terms of use"
     val about_us = "about us"
     val changelog = "changelog"
@@ -31,6 +32,21 @@ object Constants {
     var email_us = "email us"
 
     var business = "business"
+
+    var view_video_app_features = "view video of app features"
+
+    var frequently_asked_question = "frequently asked questions"
+
+    var technical_issues = "technical issues"
+
+    var tech_issue_top = "Are you experiencing some technical issues with our application? Please describe the issue below and our team will look at it as soon as possible."
+
+    var tech_issue_note = "For not technical-related issues, please use our general contact form."
+
+    var note = "note"
+
+    var describe = "describe"
+
 }
 
 //"Internet Police" Would Like to Send You Notifications

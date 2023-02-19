@@ -17,7 +17,9 @@ enum class Screens {
     ABOUTUS,
     CHANGELOG,
     CHANGELOGDETAILS,
-    HELPCONTACT
+    HELPCONTACT,
+    FAQ,
+    REPORTPROBLEM
 }
 
 @Composable
@@ -25,7 +27,7 @@ fun IPApp(
     notificationStateController: NotificationStateController,
     navController: NavHostController = rememberNavController()
 ) {
-    Scaffold{ innerpadding ->
+    Scaffold (){ innerpadding ->
         NavHost(
             navController = navController,
             startDestination = Screens.SETTINGS.name,
@@ -68,6 +70,18 @@ fun IPApp(
 
             composable(route = Screens.HELPCONTACT.name) {
                 HelpContactScreen(onBack = {
+                    navController.navigateUp()
+                })
+            }
+
+            composable(route = Screens.FAQ.name) {
+                FAQScreen(onBack = {
+                    navController.navigateUp()
+                })
+            }
+
+            composable(route = Screens.REPORTPROBLEM.name) {
+                ReportProblemScreen(onBack = {
                     navController.navigateUp()
                 })
             }

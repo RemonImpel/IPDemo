@@ -75,7 +75,7 @@ fun HelpContactScreen(onBack: () -> Unit) {
 
                     Column(
                         modifier = Modifier
-                            .padding(top = 190.dp)
+                            .padding(top = 190.dp, start = 10.dp, end = 10.dp)
                             .fillMaxWidth()
                             .fillMaxHeight()
                             .background(Color.White)
@@ -165,7 +165,8 @@ fun HelpContactScreen(onBack: () -> Unit) {
                             Card(
                                 modifier = Modifier
                                     .weight(1f)
-                                    .padding(10.dp).clickable {  },
+                                    .padding(10.dp)
+                                    .clickable { },
                                 shape = RoundedCornerShape(20.dp),
                                 elevation = 1.dp
                             ) {
