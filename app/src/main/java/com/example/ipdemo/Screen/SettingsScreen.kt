@@ -637,7 +637,7 @@ fun notificationDeniedDialog(
                     }
 
                     Image(
-                        painter = painterResource(id = R.drawable.ip_police_ok),
+                        painter = painterResource(id = R.drawable.ip_police_cross),
                         contentDescription = "",
                         modifier = Modifier.height((ScreenSize.height() / 3).dp),
                         contentScale = ContentScale.Crop
