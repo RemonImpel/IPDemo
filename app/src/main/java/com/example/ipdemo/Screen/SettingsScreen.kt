@@ -486,7 +486,7 @@ fun notificationPermissionDialog(
                                     color = Color.Black,
                                     fontWeight = FontWeight.Bold,
                                     fontFamily = fontRoboto,
-                                    fontSize = 16.sp,
+                                    fontSize = 18.sp,
                                     letterSpacing = .5.sp
                                 )
                             )
@@ -500,7 +500,7 @@ fun notificationPermissionDialog(
                                 style = TextStyle(
                                     color = Color.Black,
                                     fontFamily = fontRoboto,
-                                    fontSize = 10.sp
+                                    fontSize = 12.sp
                                 )
                             )
                         }
@@ -639,7 +639,7 @@ fun notificationDeniedDialog(
                     Image(
                         painter = painterResource(id = R.drawable.ip_police_cross),
                         contentDescription = "",
-                        modifier = Modifier.height((ScreenSize.height() / 3).dp),
+                        modifier = Modifier.height(200.dp),
                         contentScale = ContentScale.Crop
                     )
 
