@@ -139,12 +139,12 @@ fun SettingsScreen(
                     Row(
                         modifier = Modifier
                             .fillMaxWidth()
-                            .padding(20.dp),
+                            .padding(25.dp),
                         verticalAlignment = Alignment.CenterVertically,
                         horizontalArrangement = Arrangement.Start
                     ) {
                         Icon(
-                            painter = painterResource(id = R.drawable.translation),
+                            painter = painterResource(id = R.drawable.language),
                             tint = colorResource(id = R.color.default_icon_color),
                             modifier = Modifier.size(25.dp),
                             contentDescription = ""
@@ -196,7 +196,7 @@ fun SettingsScreen(
                     Row(
                         modifier = Modifier
                             .fillMaxWidth()
-                            .padding(20.dp),
+                            .padding(25.dp),
                         verticalAlignment = Alignment.CenterVertically,
                         horizontalArrangement = Arrangement.Start
                     ) {
@@ -273,7 +273,7 @@ fun SettingsScreen(
 
                 customItemCard(
                     title = Constants.terms_of_use,
-                    R.drawable.faq,
+                    R.drawable.terms_use_icon,
                     cardElevation,
                     navController
                 )
@@ -289,7 +289,7 @@ fun SettingsScreen(
 
                 customItemCard(
                     title = Constants.changelog,
-                    R.drawable.faq,
+                    R.drawable.changelog_icon,
                     cardElevation,
                     navController
                 )
@@ -392,7 +392,7 @@ fun customItemCard(
         Row(
             modifier = Modifier
                 .fillMaxWidth()
-                .padding(20.dp),
+                .padding(25.dp),
             verticalAlignment = Alignment.CenterVertically,
             horizontalArrangement = Arrangement.Start
         ) {
@@ -460,7 +460,6 @@ fun notificationPermissionDialog(
             ),
             onDismissRequest = {
                 onDismissRequest(permissionDialogState)
-                //dialogHeight = 200
             },
         ) {
 
