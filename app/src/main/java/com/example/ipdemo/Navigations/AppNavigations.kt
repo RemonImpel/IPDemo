@@ -32,7 +32,7 @@ fun IPApp(
     Scaffold() { innerpadding ->
         NavHost(
             navController = navController,
-            startDestination = Screens.FAQ.name,
+            startDestination = Screens.SETTINGS.name,
             modifier = Modifier.padding(innerpadding)
         ) {
 
@@ -100,7 +100,7 @@ fun IPApp(
             composable(route = Screens.REPORTSUCCESSSCREEN.name) {
 
                 ReportSuccessScreen(
-                    onBack = { navController.navigateUp() },navController
+                    onBack = { navController.navigateUp() },
                 )
 
             }

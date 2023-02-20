@@ -14,6 +14,8 @@ import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.graphics.Brush
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.colorResource
@@ -32,6 +34,7 @@ import com.example.ipdemo.ui.theme.Components.AppToolbarCompose
 import com.example.ipdemo.ui.theme.blueButton
 import com.example.ipdemo.ui.theme.darkButtonTextStyle
 import com.example.ipdemo.ui.theme.fontRoboto
+import com.example.ipdemo.ui.theme.lightPurple
 
 
 //private lateinit var languageList: ArrayList<LanguageResponse>
@@ -88,6 +91,14 @@ fun LanguageScreen(onBack: () -> Unit) {
         Column(
             modifier = Modifier
                 .fillMaxSize()
+                .background(
+                    brush = Brush.verticalGradient(
+                        colors = listOf(
+                            Color.White,
+                            lightPurple
+                        )
+                    )
+                )
                 .padding(bottom = 60.dp)
 
         ) {

@@ -11,6 +11,7 @@ import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.ExperimentalComposeUiApi
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
@@ -38,6 +39,7 @@ import com.example.ipdemo.Utils.ScreenSize
 import com.example.ipdemo.ui.theme.Components.AppToolbarCompose
 import com.example.ipdemo.ui.theme.blueButton
 import com.example.ipdemo.ui.theme.fontRoboto
+import com.example.ipdemo.ui.theme.lightPurple
 
 @SuppressLint("StateFlowValueCalledInComposition")
 @Composable
@@ -79,7 +81,15 @@ fun SettingsScreen(
     Scaffold() {
         Column(
             modifier = Modifier
-                .fillMaxWidth()
+                .fillMaxSize()
+                .background(
+                    brush = Brush.verticalGradient(
+                        colors = listOf(
+                            Color.White,
+                            lightPurple
+                        )
+                    )
+                )
 
         ) {
             AppToolbarCompose(
@@ -87,6 +97,7 @@ fun SettingsScreen(
                 onBackClick = onBack
             )
 
+           // instagramIcon()
 
             Column(
                 modifier = Modifier
@@ -463,7 +474,7 @@ fun notificationPermissionDialog(
                 modifier = Modifier
                     .padding(start = (ScreenSize.width() / 5).dp, end = (ScreenSize.width() / 5).dp)
                     .fillMaxWidth()
-                    //.height(dialogHeight.dp)
+                //.height(dialogHeight.dp)
 
             ) {
 

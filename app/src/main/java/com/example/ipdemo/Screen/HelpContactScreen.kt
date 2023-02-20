@@ -34,7 +34,11 @@ fun HelpContactScreen(onBack: () -> Unit) {
 
     Scaffold() {
 
-        Column(modifier = Modifier.fillMaxSize()) {
+        Column(
+            modifier = Modifier
+                .fillMaxSize()
+
+        ) {
             AppToolbarCompose(
                 title = Constants.back.capitalize(), onBackClick = onBack
             )
@@ -42,195 +46,164 @@ fun HelpContactScreen(onBack: () -> Unit) {
             Column(
                 modifier = Modifier
                     .fillMaxSize()
-                    .verticalScroll(rememberScrollState())
+
             ) {
-                Box(
+
+                Row(
                     modifier = Modifier
-                        .fillMaxSize()
+                        .fillMaxWidth()
+                        .height(200.dp)
+                        .offset(y = 20.dp)
+                        .background(
+                            brush = Brush.verticalGradient(
+                                colors = listOf(
+                                    Color.White, lightPurple
+                                )
+                            )
+                        ),
+                    verticalAlignment = Alignment.CenterVertically,
+                    horizontalArrangement = Arrangement.Center
+                ) {
+                    Image(
+                        painter = painterResource(id = R.drawable.ip_police_headphone),
+                        modifier = Modifier
+                            .fillMaxHeight(),
+                        //contentScale = ContentScale.Crop,
+                        contentDescription = ""
+                    )
+                }
+
+                Column(
+                    modifier = Modifier
+                        //.padding(top = 190.dp)
+                        .fillMaxSize().verticalScroll(rememberScrollState())
+                        .background(
+                            brush = Brush.verticalGradient(
+                                colors = listOf(
+                                    Color.White,
+                                    lightPurple
+                                )
+                            )
+                        )
 
                 ) {
+                    Row(
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .padding(top = 25.dp, bottom = 25.dp, start = 10.dp, end = 10.dp),
+                        horizontalArrangement = Arrangement.Center,
+                        verticalAlignment = Alignment.CenterVertically
+                    ) {
+
+                        Text(
+                            text = Constants.how_can_we_help_you.capitalize(),
+                            style = TextStyle(
+                                letterSpacing = 1.sp,
+                                color = colorResource(id = R.color.default_text_color),
+                                fontSize = 21.sp,
+                                //fontWeight = FontWeight.Bold,
+                                fontFamily = FontFamily(Font(R.font.roboto_black))
+                            )
+                        )
+                    }
+
+
+
+                    Text(
+                        text = Constants.lorem_ipsum,
+                        style = TextStyle(
+                            fontSize = 16.sp,
+                            lineHeight = 25.sp,
+                            letterSpacing = .5.sp,
+                            textAlign = TextAlign.Center
+                        ), modifier = Modifier.padding(start = 10.dp, end = 10.dp)
+                    )
+
+                    Text(
+                        text = Constants.lorem_ipsum,
+                        style = TextStyle(
+                            fontSize = 16.sp,
+                            lineHeight = 25.sp,
+                            letterSpacing = .5.sp,
+                            textAlign = TextAlign.Center
+                        ), modifier = Modifier.padding(start = 10.dp, end = 10.dp)
+                    )
 
                     Row(
                         modifier = Modifier
                             .fillMaxWidth()
-                            .offset(y = 10.dp)
-                            .background(
-                                brush = Brush.verticalGradient(
-                                    colors = listOf(
-                                        Color.White, lightPurple
+                            .padding(20.dp)
+                    ) {
+                        Card(
+                            modifier = Modifier
+                                .weight(1f)
+                                .padding(10.dp)
+                                .clickable { },
+                            shape = RoundedCornerShape(20.dp),
+                            elevation = 1.dp
+                        ) {
+                            Column(
+                                modifier = Modifier.padding(30.dp),
+                                horizontalAlignment = Alignment.CenterHorizontally
+                            ) {
+                                Icon(
+                                    painterResource(id = R.drawable.mail),
+                                    tint = blueButton,
+                                    contentDescription = "", modifier = Modifier.size(25.dp)
+                                )
+                                Divider(
+                                    color = Color.Transparent,
+                                    modifier = Modifier.height(10.dp)
+                                )
+
+                                Text(
+                                    text = Constants.email_us.capitalize(), style = TextStyle(
+                                        color = colorResource(
+                                            id = R.color.default_text_color
+                                        ),
+                                        fontWeight = FontWeight.Bold,
+                                        fontSize = 16.sp
                                     )
                                 )
-                            ),
-                        verticalAlignment = Alignment.CenterVertically,
-                        horizontalArrangement = Arrangement.Center
-                    ) {
-                        Image(
-                            painter = painterResource(id = R.drawable.ip_police_headphone),
-                            modifier = Modifier
-                                .fillMaxHeight(),
-                            //contentScale = ContentScale.Crop,
-                            contentDescription = ""
-                        )
-                    }
-
-                    Column(
-                        modifier = Modifier
-                            .padding(top = 190.dp, start = 10.dp, end = 10.dp)
-                            .fillMaxWidth()
-                            .fillMaxHeight()
-                            .background(Color.White)
-                        //.height(ScreenSize.height().dp)
-
-
-                    ) {
-                        Row(
-                            modifier = Modifier
-                                .fillMaxWidth()
-                                .padding(top = 25.dp, bottom = 25.dp),
-                            horizontalArrangement = Arrangement.Center,
-                            verticalAlignment = Alignment.CenterVertically
-                        ) {
-
-                            Text(
-                                text = Constants.how_can_we_help_you.capitalize(),
-                                style = TextStyle(
-                                    letterSpacing = 1.sp,
-                                    color = colorResource(id = R.color.default_text_color),
-                                    fontSize = 21.sp,
-                                    //fontWeight = FontWeight.Bold,
-                                    fontFamily = FontFamily(Font(R.font.roboto_black))
-                                )
-                            )
+                            }
                         }
 
-
-
-                        Text(
-                            text = Constants.lorem_ipsum,
-                            style = TextStyle(
-                                fontSize = 16.sp,
-                                lineHeight = 25.sp,
-                                letterSpacing = .5.sp,
-                                textAlign = TextAlign.Center
-                            )
-                        )
-
-
-                        Text(
-                            text = Constants.lorem_ipsum,
-                            style = TextStyle(
-                                fontSize = 16.sp,
-                                lineHeight = 25.sp,
-                                letterSpacing = .5.sp,
-                                textAlign = TextAlign.Center
-                            )
-                        )
-
-                        Text(
-                            text = Constants.lorem_ipsum,
-                            style = TextStyle(
-                                fontSize = 16.sp,
-                                lineHeight = 25.sp,
-                                letterSpacing = .5.sp,
-                                textAlign = TextAlign.Center
-                            )
-                        )
-
-                        Text(
-                            text = Constants.lorem_ipsum,
-                            style = TextStyle(
-                                fontSize = 16.sp,
-                                lineHeight = 25.sp,
-                                letterSpacing = .5.sp,
-                                textAlign = TextAlign.Center
-                            )
-                        )
-
-                        Text(
-                            text = Constants.lorem_ipsum,
-                            style = TextStyle(
-                                fontSize = 16.sp,
-                                lineHeight = 25.sp,
-                                letterSpacing = .5.sp,
-                                textAlign = TextAlign.Center
-                            )
-                        )
-
-
-                        Row(
+                        Card(
                             modifier = Modifier
-                                .fillMaxWidth()
-                                .padding(top = 20.dp)
+                                .weight(1f)
+                                .padding(10.dp),
+                            shape = RoundedCornerShape(20.dp),
+                            elevation = 1.dp
                         ) {
-                            Card(
-                                modifier = Modifier
-                                    .weight(1f)
-                                    .padding(10.dp)
-                                    .clickable { },
-                                shape = RoundedCornerShape(20.dp),
-                                elevation = 1.dp
+                            Column(
+                                modifier = Modifier.padding(30.dp),
+                                horizontalAlignment = Alignment.CenterHorizontally
                             ) {
-                                Column(
-                                    modifier = Modifier.padding(30.dp),
-                                    horizontalAlignment = Alignment.CenterHorizontally
-                                ) {
-                                    Icon(
-                                        painterResource(id = R.drawable.mail),
-                                        tint = blueButton,
-                                        contentDescription = "", modifier = Modifier.size(25.dp)
-                                    )
-                                    Divider(
-                                        color = Color.Transparent,
-                                        modifier = Modifier.height(10.dp)
-                                    )
+                                Icon(
+                                    painterResource(id = R.drawable.briefcase),
+                                    tint = blueButton,
+                                    contentDescription = "", modifier = Modifier.size(25.dp)
+                                )
+                                Divider(
+                                    color = Color.Transparent,
+                                    modifier = Modifier.height(10.dp)
+                                )
 
-                                    Text(
-                                        text = Constants.email_us.capitalize(), style = TextStyle(
-                                            color = colorResource(
-                                                id = R.color.default_text_color
-                                            ),
-                                            fontWeight = FontWeight.Bold,
-                                            fontSize = 16.sp
-                                        )
+                                Text(
+                                    text = Constants.business.capitalize(), style = TextStyle(
+                                        color = colorResource(
+                                            id = R.color.default_text_color
+                                        ),
+                                        fontWeight = FontWeight.Bold,
+                                        fontSize = 16.sp
                                     )
-                                }
-                            }
-
-                            Card(
-                                modifier = Modifier
-                                    .weight(1f)
-                                    .padding(10.dp),
-                                shape = RoundedCornerShape(20.dp),
-                                elevation = 1.dp
-                            ) {
-                                Column(
-                                    modifier = Modifier.padding(30.dp),
-                                    horizontalAlignment = Alignment.CenterHorizontally
-                                ) {
-                                    Icon(
-                                        painterResource(id = R.drawable.briefcase),
-                                        tint = blueButton,
-                                        contentDescription = "", modifier = Modifier.size(25.dp)
-                                    )
-                                    Divider(
-                                        color = Color.Transparent,
-                                        modifier = Modifier.height(10.dp)
-                                    )
-
-                                    Text(
-                                        text = Constants.business.capitalize(), style = TextStyle(
-                                            color = colorResource(
-                                                id = R.color.default_text_color
-                                            ),
-                                            fontWeight = FontWeight.Bold,
-                                            fontSize = 16.sp
-                                        )
-                                    )
-                                }
+                                )
                             }
                         }
                     }
                 }
+
+
             }
         }
 

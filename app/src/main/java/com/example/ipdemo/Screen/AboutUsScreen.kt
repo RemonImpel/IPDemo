@@ -11,6 +11,8 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.graphics.Brush
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.painterResource
@@ -29,6 +31,7 @@ import com.example.ipdemo.ui.theme.Components.AppToolbarCompose
 import com.example.ipdemo.ui.theme.blueButton
 import com.example.ipdemo.ui.theme.darkButtonTextStyle
 import com.example.ipdemo.ui.theme.fontRoboto
+import com.example.ipdemo.ui.theme.lightPurple
 
 
 @Composable
@@ -39,7 +42,14 @@ fun AboutUsScreen(onBack: () -> Unit) {
 
         ) {
         Column(
-            modifier = Modifier.fillMaxSize()
+            modifier = Modifier.fillMaxSize().background(
+                brush = Brush.verticalGradient(
+                    colors = listOf(
+                        Color.White,
+                        lightPurple
+                    )
+                )
+            )
 
         ) {
             AppToolbarCompose(

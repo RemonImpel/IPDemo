@@ -1,12 +1,14 @@
 package com.example.ipdemo.Screen
 
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.*
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.painterResource
@@ -23,10 +25,12 @@ import com.example.ipdemo.Utils.Constants
 import com.example.ipdemo.Utils.ScreenSize
 import com.example.ipdemo.ui.theme.Components.AppToolbarCompose
 import com.example.ipdemo.ui.theme.blueButton
+import com.example.ipdemo.ui.theme.darkButtonTextStyle
+import com.example.ipdemo.ui.theme.lightPurple
 
 
 @Composable
-fun ReportSuccessScreen(onBack: () -> Unit, navController: NavHostController) {
+fun ReportSuccessScreen(onBack: () -> Unit) {
     Scaffold(
         floatingActionButtonPosition = FabPosition.Center,
         floatingActionButton = {
@@ -35,24 +39,33 @@ fun ReportSuccessScreen(onBack: () -> Unit, navController: NavHostController) {
                 .padding(start = 20.dp, end = 20.dp, bottom = 10.dp),
                 colors = ButtonDefaults.buttonColors(blueButton),
                 shape = RoundedCornerShape(20.dp),
-                onClick = { navController.navigateUp() }) {
+                onClick = { onBack() }) {
                 Text(
                     text = "Done",
-                    style = TextStyle(color = Color.White, fontWeight = FontWeight.Bold)
+                    style = darkButtonTextStyle,
+                    modifier = Modifier.padding(top = 5.dp, bottom = 5.dp)
                 )
             }
         },
     ) {
 
-//        AppToolbarCompose(
-//            title = Constants.setting.capitalize(),
-//            onBackClick = onBack
-//        )
+        AppToolbarCompose(
+            title = Constants.setting.capitalize(),
+            onBackClick = onBack
+        )
 
         Column(
             modifier = Modifier
-                .fillMaxWidth()
-                .padding(top = 40.dp),
+                .fillMaxSize()
+                .padding(top = 40.dp)
+                .background(
+                    brush = Brush.verticalGradient(
+                        colors = listOf(
+                            Color.White,
+                            lightPurple
+                        )
+                    )
+                ),
             horizontalAlignment = Alignment.CenterHorizontally,
         ) {
             Image(

@@ -1,5 +1,6 @@
 package com.example.ipdemo.Screen
 
+import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.material.Card
@@ -9,6 +10,7 @@ import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.painterResource
@@ -23,6 +25,7 @@ import com.example.ipdemo.R
 import com.example.ipdemo.Utils.Constants
 import com.example.ipdemo.ui.theme.Components.AppToolbarCompose
 import com.example.ipdemo.ui.theme.blueButton
+import com.example.ipdemo.ui.theme.lightPurple
 
 @Composable
 fun ChangeLogScreen(onBack: () -> Unit, navController: NavHostController) {
@@ -31,7 +34,14 @@ fun ChangeLogScreen(onBack: () -> Unit, navController: NavHostController) {
 
         ) {
         Column(
-            modifier = Modifier.fillMaxSize()
+            modifier = Modifier.fillMaxSize().background(
+                brush = Brush.verticalGradient(
+                    colors = listOf(
+                        Color.White,
+                        lightPurple
+                    )
+                )
+            )
 
         ) {
             AppToolbarCompose(
