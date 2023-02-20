@@ -12,6 +12,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.TextStyle
@@ -22,26 +23,31 @@ import androidx.compose.ui.unit.sp
 import androidx.navigation.NavHostController
 import com.example.ipdemo.Navigations.Screens
 import com.example.ipdemo.R
+import com.example.ipdemo.Session.SessionManagement
 import com.example.ipdemo.Utils.Constants
 import com.example.ipdemo.ui.theme.Components.AppToolbarCompose
 import com.example.ipdemo.ui.theme.blueButton
-import com.example.ipdemo.ui.theme.lightPurple
+import com.example.ipdemo.ui.theme.gradientBottomColor
 
 @Composable
 fun ChangeLogScreen(onBack: () -> Unit, navController: NavHostController) {
+    var context = LocalContext.current
+    val sessionManagement = SessionManagement(context)
     Scaffold(
         modifier = Modifier.fillMaxSize(),
 
         ) {
         Column(
-            modifier = Modifier.fillMaxSize().background(
-                brush = Brush.verticalGradient(
-                    colors = listOf(
-                        Color.White,
-                        lightPurple
+            modifier = Modifier
+                .fillMaxSize()
+                .background(
+                    brush = Brush.verticalGradient(
+                        colors = listOf(
+                            Color.White,
+                            gradientBottomColor
+                        )
                     )
                 )
-            )
 
         ) {
             AppToolbarCompose(
@@ -68,9 +74,9 @@ fun ChangeLogScreen(onBack: () -> Unit, navController: NavHostController) {
                 )
             }
 
-            itemCard("Version 2.2", navController)
+            itemCard("Version 2.2", navController, sessionManagement)
 
-            itemCard("Version 2.1", navController)
+            itemCard("Version 2.1", navController, sessionManagement)
 
         }
     }
@@ -78,10 +84,15 @@ fun ChangeLogScreen(onBack: () -> Unit, navController: NavHostController) {
 
 
 @Composable
-fun itemCard(title: String, navController: NavHostController) {
+fun itemCard(
+    title: String,
+    navController: NavHostController,
+    sessionManagement: SessionManagement
+) {
     Card(modifier = Modifier
         .padding(top = 15.dp)
         .clickable {
+            sessionManagement.saveVersion(title)
             navController.navigate(Screens.CHANGELOGDETAILS.name)
         }) {
 

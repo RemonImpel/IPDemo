@@ -15,18 +15,16 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.Font
 import androidx.compose.ui.text.font.FontFamily
-import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import androidx.navigation.NavHostController
 import com.example.ipdemo.R
 import com.example.ipdemo.Utils.Constants
 import com.example.ipdemo.Utils.ScreenSize
 import com.example.ipdemo.ui.theme.Components.AppToolbarCompose
 import com.example.ipdemo.ui.theme.blueButton
 import com.example.ipdemo.ui.theme.darkButtonTextStyle
-import com.example.ipdemo.ui.theme.lightPurple
+import com.example.ipdemo.ui.theme.gradientBottomColor
 
 
 @Composable
@@ -62,7 +60,7 @@ fun ReportSuccessScreen(onBack: () -> Unit) {
                     brush = Brush.verticalGradient(
                         colors = listOf(
                             Color.White,
-                            lightPurple
+                            gradientBottomColor
                         )
                     )
                 ),

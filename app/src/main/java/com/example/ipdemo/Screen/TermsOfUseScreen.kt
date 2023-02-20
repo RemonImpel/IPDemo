@@ -1,7 +1,6 @@
 package com.example.ipdemo.Screen
 
 import android.annotation.SuppressLint
-import android.util.Log
 import android.view.ViewGroup
 import android.webkit.WebView
 import android.webkit.WebViewClient
@@ -20,7 +19,6 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.TextStyle
-import androidx.compose.ui.text.capitalize
 import androidx.compose.ui.text.font.Font
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
@@ -31,13 +29,12 @@ import androidx.compose.ui.viewinterop.AndroidView
 import androidx.compose.ui.window.Dialog
 import androidx.compose.ui.window.DialogProperties
 import androidx.navigation.NavHostController
-import com.example.ipdemo.Helpers.NotificationStateController
 import com.example.ipdemo.R
 import com.example.ipdemo.Utils.Constants
 import com.example.ipdemo.ui.theme.Components.AppToolbarCompose
 import com.example.ipdemo.ui.theme.blueButton
 import com.example.ipdemo.ui.theme.fontRoboto
-import com.example.ipdemo.ui.theme.lightPurple
+import com.example.ipdemo.ui.theme.gradientBottomColor
 
 @SuppressLint("StateFlowValueCalledInComposition")
 @Composable
@@ -60,7 +57,7 @@ fun TermsOfUseScreen(
                     brush = Brush.verticalGradient(
                         colors = listOf(
                             Color.White,
-                            lightPurple
+                            gradientBottomColor
                         )
                     )
                 )

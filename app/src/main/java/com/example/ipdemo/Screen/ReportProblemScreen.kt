@@ -1,6 +1,5 @@
 package com.example.ipdemo.Screen
 
-import android.widget.Toast
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.RoundedCornerShape
@@ -17,7 +16,6 @@ import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.Font
 import androidx.compose.ui.text.font.FontFamily
-import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
@@ -29,7 +27,7 @@ import com.example.ipdemo.Utils.ScreenSize
 import com.example.ipdemo.ui.theme.Components.AppToolbarCompose
 import com.example.ipdemo.ui.theme.blueButton
 import com.example.ipdemo.ui.theme.darkButtonTextStyle
-import com.example.ipdemo.ui.theme.lightPurple
+import com.example.ipdemo.ui.theme.gradientBottomColor
 
 @Composable
 fun ReportProblemScreen(onBack: () -> Unit, navController: NavHostController) {
@@ -73,7 +71,7 @@ fun ReportProblemScreen(onBack: () -> Unit, navController: NavHostController) {
                     brush = Brush.verticalGradient(
                         colors = listOf(
                             Color.White,
-                            lightPurple
+                            gradientBottomColor
                         )
                     )
                 )

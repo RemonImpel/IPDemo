@@ -1,6 +1,5 @@
 package com.example.ipdemo.Screen
 
-import android.widget.Toast
 import androidx.compose.foundation.*
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
@@ -34,7 +33,7 @@ import com.example.ipdemo.ui.theme.Components.AppToolbarCompose
 import com.example.ipdemo.ui.theme.blueButton
 import com.example.ipdemo.ui.theme.darkButtonTextStyle
 import com.example.ipdemo.ui.theme.fontRoboto
-import com.example.ipdemo.ui.theme.lightPurple
+import com.example.ipdemo.ui.theme.gradientBottomColor
 
 
 //private lateinit var languageList: ArrayList<LanguageResponse>
@@ -95,7 +94,7 @@ fun LanguageScreen(onBack: () -> Unit) {
                     brush = Brush.verticalGradient(
                         colors = listOf(
                             Color.White,
-                            lightPurple
+                            gradientBottomColor
                         )
                     )
                 )

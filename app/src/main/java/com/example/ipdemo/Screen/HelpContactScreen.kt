@@ -24,7 +24,7 @@ import com.example.ipdemo.R
 import com.example.ipdemo.Utils.Constants
 import com.example.ipdemo.ui.theme.Components.AppToolbarCompose
 import com.example.ipdemo.ui.theme.blueButton
-import com.example.ipdemo.ui.theme.lightPurple
+import com.example.ipdemo.ui.theme.gradientBottomColor
 
 @Composable
 fun HelpContactScreen(onBack: () -> Unit, navController: NavHostController) {
@@ -54,7 +54,7 @@ fun HelpContactScreen(onBack: () -> Unit, navController: NavHostController) {
                         .background(
                             brush = Brush.verticalGradient(
                                 colors = listOf(
-                                    Color.White, lightPurple
+                                    Color.White, gradientBottomColor
                                 )
                             )
                         ),
@@ -78,7 +78,7 @@ fun HelpContactScreen(onBack: () -> Unit, navController: NavHostController) {
                             brush = Brush.verticalGradient(
                                 colors = listOf(
                                     Color.White,
-                                    lightPurple
+                                    gradientBottomColor
                                 )
                             )
                         )
