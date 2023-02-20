@@ -52,6 +52,10 @@ object Constants {
     var privacy_policy = "privacy policy"
 
     var we_highly_appreciate_your_input = "we highly appreciate your input"
+
+    var message_sent = "your message has been sent"
+
+    var thank_for_reaching_out= "we thank you for reaching out. We will get back to you as soon as possible."
 }
 
 //"Internet Police" Would Like to Send You Notifications

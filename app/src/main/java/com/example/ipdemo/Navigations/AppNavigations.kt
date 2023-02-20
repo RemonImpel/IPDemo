@@ -21,7 +21,8 @@ enum class Screens {
     FAQ,
     REPORTPROBLEM,
     TERMSOFUSE,
-    REPORTSUCCESSSCREEN
+    REPORTSUCCESSSCREEN,
+    MAILSUCCESS
 }
 
 @Composable
@@ -73,7 +74,7 @@ fun IPApp(
             composable(route = Screens.HELPCONTACT.name) {
                 HelpContactScreen(onBack = {
                     navController.navigateUp()
-                })
+                }, navController)
             }
 
             composable(route = Screens.FAQ.name) {
@@ -100,6 +101,14 @@ fun IPApp(
             composable(route = Screens.REPORTSUCCESSSCREEN.name) {
 
                 ReportSuccessScreen(
+                    onBack = { navController.navigateUp() },
+                )
+
+            }
+
+            composable(route = Screens.MAILSUCCESS.name) {
+
+                MailSuccessScreen(
                     onBack = { navController.navigateUp() },
                 )
 

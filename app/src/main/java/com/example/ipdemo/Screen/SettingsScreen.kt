@@ -97,7 +97,7 @@ fun SettingsScreen(
                 onBackClick = onBack
             )
 
-           // instagramIcon()
+            // instagramIcon()
 
             Column(
                 modifier = Modifier
@@ -311,6 +311,7 @@ fun SettingsScreen(
                             //fontFamily = FontFamily(Font(R.font.roboto_black))
                         )
                     )
+
 
                     Text(
                         text = buildVersion.value.toString(), style = TextStyle(
@@ -530,12 +531,6 @@ fun notificationPermissionDialog(
                                 Text(text = "Don't Allow", style = TextStyle(color = blueButton))
                             }
 
-//                            Divider(
-//                                modifier = Modifier
-//                                    .width(1.dp)
-//                                    .fillMaxHeight()
-//                                    .background(color = Color.LightGray)
-//                            )
 
                             TextButton(onClick = {
                                 sessionManagement.saveNotificationState(true)

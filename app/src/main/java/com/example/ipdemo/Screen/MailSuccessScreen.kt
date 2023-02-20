@@ -15,11 +15,9 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.Font
 import androidx.compose.ui.text.font.FontFamily
-import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import androidx.navigation.NavHostController
 import com.example.ipdemo.R
 import com.example.ipdemo.Utils.Constants
 import com.example.ipdemo.Utils.ScreenSize
@@ -30,7 +28,7 @@ import com.example.ipdemo.ui.theme.lightPurple
 
 
 @Composable
-fun ReportSuccessScreen(onBack: () -> Unit) {
+fun MailSuccessScreen(onBack: () -> Unit) {
     Scaffold(
         floatingActionButtonPosition = FabPosition.Center,
         floatingActionButton = {
@@ -75,7 +73,7 @@ fun ReportSuccessScreen(onBack: () -> Unit) {
             )
 
             Text(
-                text = Constants.we_highly_appreciate_your_input.capitalize(),
+                text = Constants.message_sent.capitalize(),
                 style = TextStyle(
                     letterSpacing = 1.sp,
                     color = colorResource(id = R.color.default_text_color),
@@ -84,6 +82,19 @@ fun ReportSuccessScreen(onBack: () -> Unit) {
                     fontFamily = FontFamily(Font(R.font.roboto_black))
                 ),
                 modifier = Modifier.width((ScreenSize.width() / 2).dp),
+                textAlign = TextAlign.Center
+            )
+
+            Text(
+                text = Constants.thank_for_reaching_out.capitalize(),
+                style = TextStyle(
+                    letterSpacing = 1.sp,
+                    color = colorResource(id = R.color.default_text_color),
+                    fontSize = 14.sp,
+                    //fontWeight = FontWeight.Bold,
+                    //fontFamily = FontFamily(Font(R.font.roboto_black))
+                ),
+                modifier = Modifier.padding(60.dp),
                 textAlign = TextAlign.Center
             )
 
