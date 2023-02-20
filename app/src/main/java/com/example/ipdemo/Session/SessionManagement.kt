@@ -23,7 +23,7 @@ class SessionManagement(context: Context) {
     }
 
     fun getLanguage(): String? {
-        return sharedPreferences!!.getString(SESSION_LANGUAGE, "none")
+        return sharedPreferences!!.getString(SESSION_LANGUAGE, "english")
     }
 
     fun saveNotificationState(state: Boolean) {
