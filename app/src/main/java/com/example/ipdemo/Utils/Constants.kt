@@ -1,6 +1,7 @@
 package com.example.ipdemo.Utils
 
 object Constants {
+    var DEFAULT_LANG = "english"
     val home = "home"
     val setting = "settings"
     val notifications = "notifications"

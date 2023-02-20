@@ -4,6 +4,7 @@ import android.annotation.SuppressLint
 import android.content.Context
 import android.content.SharedPreferences
 import android.util.Log
+import com.example.ipdemo.Utils.Constants
 import kotlinx.coroutines.flow.StateFlow
 
 
@@ -23,7 +24,7 @@ class SessionManagement(context: Context) {
     }
 
     fun getLanguage(): String? {
-        return sharedPreferences!!.getString(SESSION_LANGUAGE, "english")
+        return sharedPreferences!!.getString(SESSION_LANGUAGE, Constants.DEFAULT_LANG)
     }
 
     fun saveNotificationState(state: Boolean) {
