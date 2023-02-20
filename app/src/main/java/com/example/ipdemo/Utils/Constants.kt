@@ -47,6 +47,11 @@ object Constants {
 
     var describe = "describe"
 
+    var terms_and_conditions = "terms and conditions"
+
+    var privacy_policy = "privacy policy"
+
+    var we_highly_appreciate_your_input = "we highly appreciate your input"
 }
 
 //"Internet Police" Would Like to Send You Notifications

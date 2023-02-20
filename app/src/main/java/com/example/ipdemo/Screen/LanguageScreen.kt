@@ -65,7 +65,7 @@ fun LanguageScreen(onBack: () -> Unit) {
     Scaffold(modifier = Modifier.fillMaxSize(), floatingActionButton = {
         Button(modifier = Modifier
             .fillMaxWidth()
-            .padding(start = 30.dp, end = 30.dp, bottom = 20.dp),
+            .padding(start = 30.dp, end = 30.dp, bottom = 0.dp),
             shape = RoundedCornerShape(50.dp),
             colors = ButtonDefaults.buttonColors(blueButton),
             onClick = {
@@ -86,7 +86,9 @@ fun LanguageScreen(onBack: () -> Unit) {
         }
     }, floatingActionButtonPosition = FabPosition.Center) {
         Column(
-            modifier = Modifier.fillMaxSize()
+            modifier = Modifier
+                .fillMaxSize()
+                .padding(bottom = 60.dp)
 
         ) {
             AppToolbarCompose(

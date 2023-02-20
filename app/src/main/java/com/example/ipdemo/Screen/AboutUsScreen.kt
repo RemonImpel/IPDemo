@@ -15,9 +15,11 @@ import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.TextStyle
+import androidx.compose.ui.text.capitalize
 import androidx.compose.ui.text.font.Font
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.ipdemo.R
@@ -44,14 +46,18 @@ fun AboutUsScreen(onBack: () -> Unit) {
                 title = Constants.setting.capitalize(), onBackClick = onBack
             )
 
-            Column(horizontalAlignment = Alignment.CenterHorizontally,
+            Column(
+                horizontalAlignment = Alignment.CenterHorizontally,
                 modifier = Modifier
                     .fillMaxWidth()
+                    .padding(10.dp)
                     .verticalScroll(rememberScrollState())
             ) {
                 Image(
                     painter = painterResource(id = R.drawable.title_logo),
-                    modifier = Modifier.height((ScreenSize.height() / 9).dp).padding(top=20.dp, bottom = 20.dp),
+                    modifier = Modifier
+                        .height((ScreenSize.height() / 9).dp)
+                        .padding(top = 20.dp, bottom = 20.dp),
                     contentDescription = ""
                 )
 
@@ -60,6 +66,64 @@ fun AboutUsScreen(onBack: () -> Unit) {
                     modifier = Modifier.height((ScreenSize.height() / 4).dp),
                     contentDescription = ""
                 )
+
+                Row(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .padding(top = 25.dp, bottom = 25.dp),
+                    horizontalArrangement = Arrangement.Center,
+                    verticalAlignment = Alignment.CenterVertically
+                ) {
+
+                    Text(
+                        text = Constants.about_us.capitalize(), style = TextStyle(
+                            letterSpacing = 1.sp,
+                            color = colorResource(id = R.color.default_text_color),
+                            fontSize = 21.sp,
+                            //fontWeight = FontWeight.Bold,
+                            fontFamily = FontFamily(Font(R.font.roboto_black))
+                        )
+                    )
+                }
+
+                Text(
+                    text = Constants.lorem_ipsum.capitalize(), style = TextStyle(
+                        fontSize = 14.sp,
+                        lineHeight = 25.sp,
+                        letterSpacing = .5.sp,
+                        textAlign = TextAlign.Center
+                    )
+                )
+
+                Row(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .padding(top = 25.dp, bottom = 25.dp),
+                    horizontalArrangement = Arrangement.Center,
+                    verticalAlignment = Alignment.CenterVertically
+                ) {
+
+                    Text(
+                        text = "lorem ipsum".capitalize(), style = TextStyle(
+                            letterSpacing = 1.sp,
+                            color = colorResource(id = R.color.default_text_color),
+                            fontSize = 21.sp,
+                            //fontWeight = FontWeight.Bold,
+                            fontFamily = FontFamily(Font(R.font.roboto_black))
+                        )
+                    )
+                }
+
+                Text(
+                    text = Constants.lorem_ipsum.capitalize() + " " + Constants.lorem_ipsum.capitalize(),
+                    style = TextStyle(
+                        fontSize = 14.sp,
+                        lineHeight = 25.sp,
+                        letterSpacing = .5.sp,
+                        textAlign = TextAlign.Center
+                    )
+                )
+
             }
 
         }

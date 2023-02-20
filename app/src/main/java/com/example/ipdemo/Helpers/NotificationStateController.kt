@@ -13,4 +13,5 @@ class NotificationStateController : ViewModel() {
     fun setState(s: Boolean) {
         _state.value = s
     }
+
 }

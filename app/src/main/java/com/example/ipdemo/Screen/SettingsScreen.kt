@@ -76,11 +76,6 @@ fun SettingsScreen(
     notificationStateController.setState(sessionManagement.getNotificationState())
 
 
-//    Log.d(
-//        "dataxx",
-//        "notificationStateController: ${notificationStateController.notificationState.value.toString()}"
-//    )
-
     Scaffold() {
         Column(
             modifier = Modifier
@@ -373,6 +368,10 @@ fun customItemCard(
                 if (title == Constants.report_a_problem) {
                     navController.navigate(Screens.REPORTPROBLEM.name)
                 }
+
+                if (title == Constants.terms_of_use) {
+                    navController.navigate(Screens.TERMSOFUSE.name)
+                }
             },
         shape = RoundedCornerShape(16.dp),
         elevation = cardElevation.dp
@@ -464,7 +463,7 @@ fun notificationPermissionDialog(
                 modifier = Modifier
                     .padding(start = (ScreenSize.width() / 5).dp, end = (ScreenSize.width() / 5).dp)
                     .fillMaxWidth()
-                    .height(dialogHeight.dp)
+                    //.height(dialogHeight.dp)
 
             ) {
 
@@ -520,12 +519,12 @@ fun notificationPermissionDialog(
                                 Text(text = "Don't Allow", style = TextStyle(color = blueButton))
                             }
 
-                            Divider(
-                                modifier = Modifier
-                                    .width(1.dp)
-                                    .fillMaxHeight()
-                                    .background(color = Color.LightGray)
-                            )
+//                            Divider(
+//                                modifier = Modifier
+//                                    .width(1.dp)
+//                                    .fillMaxHeight()
+//                                    .background(color = Color.LightGray)
+//                            )
 
                             TextButton(onClick = {
                                 sessionManagement.saveNotificationState(true)

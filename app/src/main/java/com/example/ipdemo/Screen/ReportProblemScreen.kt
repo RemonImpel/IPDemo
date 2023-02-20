@@ -1,7 +1,6 @@
 package com.example.ipdemo.Screen
 
 import android.widget.Toast
-import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.*
@@ -10,18 +9,18 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.text.TextStyle
-import androidx.compose.ui.text.capitalize
 import androidx.compose.ui.text.font.Font
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.navigation.NavHostController
+import com.example.ipdemo.Navigations.Screens
 import com.example.ipdemo.R
 import com.example.ipdemo.Utils.Constants
 import com.example.ipdemo.ui.theme.Components.AppToolbarCompose
@@ -29,7 +28,7 @@ import com.example.ipdemo.ui.theme.blueButton
 import com.example.ipdemo.ui.theme.darkButtonTextStyle
 
 @Composable
-fun ReportProblemScreen(onBack: () -> Unit) {
+fun ReportProblemScreen(onBack: () -> Unit, navController: NavHostController) {
 
     var context = LocalContext.current
     var issue by remember {
@@ -43,11 +42,18 @@ fun ReportProblemScreen(onBack: () -> Unit) {
             shape = RoundedCornerShape(50.dp),
             colors = ButtonDefaults.buttonColors(blueButton),
             onClick = {
-                if(issue.isNotEmpty()){
-                    Toast.makeText(context, issue, Toast.LENGTH_SHORT).show()
-                }else{
-                    Toast.makeText(context, "nothing to report", Toast.LENGTH_SHORT).show()
+                navController.navigate(Screens.REPORTSUCCESSSCREEN.name){
+                    popUpTo(Screens.SETTINGS.name){
+                        inclusive = true
+                    }
                 }
+
+//                if (issue.isNotEmpty()) {
+//                    //Toast.makeText(context, issue, Toast.LENGTH_SHORT).show()
+//                    navController.navigate(Screens.REPORTSUCCESSSCREEN.name)
+//                } else {
+//                    Toast.makeText(context, "nothing to report", Toast.LENGTH_SHORT).show()
+//                }
             }) {
 
             Text(
