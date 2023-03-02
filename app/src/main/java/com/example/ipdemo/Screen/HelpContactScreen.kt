@@ -9,6 +9,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.TextStyle
@@ -22,6 +23,7 @@ import androidx.navigation.NavHostController
 import com.example.ipdemo.Navigations.Screens
 import com.example.ipdemo.R
 import com.example.ipdemo.Utils.Constants
+import com.example.ipdemo.Utils.ScreenSize
 import com.example.ipdemo.ui.theme.Components.AppToolbarCompose
 import com.example.ipdemo.ui.theme.blueButton
 import com.example.ipdemo.ui.theme.gradientBottomColor
@@ -40,7 +42,7 @@ fun HelpContactScreen(onBack: () -> Unit, navController: NavHostController) {
                 title = Constants.back.capitalize(), onBackClick = onBack
             )
 
-            Column(
+            Box(
                 modifier = Modifier
                     .fillMaxSize()
 
@@ -50,7 +52,7 @@ fun HelpContactScreen(onBack: () -> Unit, navController: NavHostController) {
                     modifier = Modifier
                         .fillMaxWidth()
                         .height(200.dp)
-                        .offset(y = 20.dp)
+                        //.offset(y = 20.dp)
                         .background(
                             brush = Brush.verticalGradient(
                                 colors = listOf(
@@ -62,7 +64,7 @@ fun HelpContactScreen(onBack: () -> Unit, navController: NavHostController) {
                     horizontalArrangement = Arrangement.Center
                 ) {
                     Image(
-                        painter = painterResource(id = R.drawable.ip_police_headphone),
+                        painter = painterResource(id = R.drawable.ip_police_help),
                         modifier = Modifier
                             .fillMaxHeight(),
                         //contentScale = ContentScale.Crop,
@@ -70,140 +72,186 @@ fun HelpContactScreen(onBack: () -> Unit, navController: NavHostController) {
                     )
                 }
 
-                Column(
-                    modifier = Modifier
-                        //.padding(top = 190.dp)
-                        .fillMaxSize().verticalScroll(rememberScrollState())
-                        .background(
-                            brush = Brush.verticalGradient(
-                                colors = listOf(
-                                    Color.White,
-                                    gradientBottomColor
-                                )
-                            )
-                        )
-
-                ) {
-                    Row(
+                Box(modifier = Modifier
+                    .fillMaxSize()
+                    .padding(top = 80.dp)) {
+                    Image(
+                        painter = painterResource(id = R.drawable.curve_bg),
+                        contentDescription = "",
                         modifier = Modifier
-                            .fillMaxWidth()
-                            .padding(top = 25.dp, bottom = 25.dp, start = 10.dp, end = 10.dp),
-                        horizontalArrangement = Arrangement.Center,
-                        verticalAlignment = Alignment.CenterVertically
-                    ) {
-
-                        Text(
-                            text = Constants.how_can_we_help_you.capitalize(),
-                            style = TextStyle(
-                                letterSpacing = 1.sp,
-                                color = colorResource(id = R.color.default_text_color),
-                                fontSize = 21.sp,
-                                //fontWeight = FontWeight.Bold,
-                                fontFamily = FontFamily(Font(R.font.roboto_black))
-                            )
-                        )
-                    }
-
-
-
-                    Text(
-                        text = Constants.lorem_ipsum,
-                        style = TextStyle(
-                            fontSize = 16.sp,
-                            lineHeight = 25.sp,
-                            letterSpacing = .5.sp,
-                            textAlign = TextAlign.Center
-                        ), modifier = Modifier.padding(start = 10.dp, end = 10.dp)
+                            //.padding(top = 100.dp)
+                            .width(ScreenSize.width().dp)
+//                        .height(ScreenSize.height().dp)
+                            .fillMaxSize(),
+                        contentScale = ContentScale.FillHeight
                     )
-
-                    Text(
-                        text = Constants.lorem_ipsum,
-                        style = TextStyle(
-                            fontSize = 16.sp,
-                            lineHeight = 25.sp,
-                            letterSpacing = .5.sp,
-                            textAlign = TextAlign.Center
-                        ), modifier = Modifier.padding(start = 10.dp, end = 10.dp)
-                    )
-
-                    Row(
+                    Column(
                         modifier = Modifier
-                            .fillMaxWidth()
-                            .padding(20.dp)
+                            .fillMaxSize()
+                            .padding(top = 120.dp)
+                            .verticalScroll(rememberScrollState())
+
                     ) {
-                        Card(
+                        Row(
                             modifier = Modifier
-                                .weight(1f)
-                                .padding(10.dp)
-                                .clickable {
-
-                                    navController.navigate(Screens.MAILSUCCESS.name){
-                                        navController.popBackStack(
-                                            Screens.SETTINGS.name,
-                                            inclusive = false,
-                                            saveState = false
-                                        )
-                                    }
-                                },
-                            shape = RoundedCornerShape(20.dp),
-                            elevation = 1.dp
+                                .fillMaxWidth()
+                                .padding(bottom = 25.dp, start = 10.dp, end = 10.dp),
+                            horizontalArrangement = Arrangement.Center,
+                            verticalAlignment = Alignment.CenterVertically
                         ) {
-                            Column(
-                                modifier = Modifier.padding(30.dp),
-                                horizontalAlignment = Alignment.CenterHorizontally
-                            ) {
-                                Icon(
-                                    painterResource(id = R.drawable.mail),
-                                    tint = blueButton,
-                                    contentDescription = "", modifier = Modifier.size(25.dp)
-                                )
-                                Divider(
-                                    color = Color.Transparent,
-                                    modifier = Modifier.height(10.dp)
-                                )
 
-                                Text(
-                                    text = Constants.email_us.capitalize(), style = TextStyle(
-                                        color = colorResource(
-                                            id = R.color.default_text_color
-                                        ),
-                                        fontWeight = FontWeight.Bold,
-                                        fontSize = 16.sp
-                                    )
+                            Text(
+                                text = Constants.how_can_we_help_you.capitalize(),
+                                style = TextStyle(
+                                    letterSpacing = 1.sp,
+                                    color = colorResource(id = R.color.default_text_color),
+                                    fontSize = 21.sp,
+                                    //fontWeight = FontWeight.Bold,
+                                    fontFamily = FontFamily(Font(R.font.roboto_black))
                                 )
-                            }
+                            )
                         }
 
-                        Card(
-                            modifier = Modifier
-                                .weight(1f)
-                                .padding(10.dp),
-                            shape = RoundedCornerShape(20.dp),
-                            elevation = 1.dp
-                        ) {
-                            Column(
-                                modifier = Modifier.padding(30.dp),
-                                horizontalAlignment = Alignment.CenterHorizontally
-                            ) {
-                                Icon(
-                                    painterResource(id = R.drawable.briefcase),
-                                    tint = blueButton,
-                                    contentDescription = "", modifier = Modifier.size(25.dp)
-                                )
-                                Divider(
-                                    color = Color.Transparent,
-                                    modifier = Modifier.height(10.dp)
-                                )
 
-                                Text(
-                                    text = Constants.business.capitalize(), style = TextStyle(
-                                        color = colorResource(
-                                            id = R.color.default_text_color
-                                        ),
-                                        fontWeight = FontWeight.Bold,
-                                        fontSize = 16.sp
+
+                        Text(
+                            text = Constants.lorem_ipsum,
+                            style = TextStyle(
+                                fontSize = 16.sp,
+                                lineHeight = 25.sp,
+                                letterSpacing = .5.sp,
+                                textAlign = TextAlign.Center
+                            ), modifier = Modifier.padding(start = 10.dp, end = 10.dp)
+                        )
+
+                        Text(
+                            text = Constants.lorem_ipsum,
+                            style = TextStyle(
+                                fontSize = 16.sp,
+                                lineHeight = 25.sp,
+                                letterSpacing = .5.sp,
+                                textAlign = TextAlign.Center
+                            ), modifier = Modifier.padding(start = 10.dp, end = 10.dp)
+                        )
+
+                        Text(
+                            text = Constants.lorem_ipsum,
+                            style = TextStyle(
+                                fontSize = 16.sp,
+                                lineHeight = 25.sp,
+                                letterSpacing = .5.sp,
+                                textAlign = TextAlign.Center
+                            ), modifier = Modifier.padding(start = 10.dp, end = 10.dp)
+                        )
+
+                        Text(
+                            text = Constants.lorem_ipsum,
+                            style = TextStyle(
+                                fontSize = 16.sp,
+                                lineHeight = 25.sp,
+                                letterSpacing = .5.sp,
+                                textAlign = TextAlign.Center
+                            ), modifier = Modifier.padding(start = 10.dp, end = 10.dp)
+                        )
+                        Text(
+                            text = Constants.lorem_ipsum,
+                            style = TextStyle(
+                                fontSize = 16.sp,
+                                lineHeight = 25.sp,
+                                letterSpacing = .5.sp,
+                                textAlign = TextAlign.Center
+                            ), modifier = Modifier.padding(start = 10.dp, end = 10.dp)
+                        )
+
+                        Text(
+                            text = Constants.lorem_ipsum,
+                            style = TextStyle(
+                                fontSize = 16.sp,
+                                lineHeight = 25.sp,
+                                letterSpacing = .5.sp,
+                                textAlign = TextAlign.Center
+                            ), modifier = Modifier.padding(start = 10.dp, end = 10.dp)
+                        )
+
+                        Row(
+                            modifier = Modifier
+                                .fillMaxWidth()
+                                .padding(20.dp)
+                        ) {
+                            Card(
+                                modifier = Modifier
+                                    .weight(1f)
+                                    .padding(10.dp)
+                                    .clickable {
+
+                                        navController.navigate(Screens.MAILSUCCESS.name) {
+                                            navController.popBackStack(
+                                                Screens.SETTINGS.name,
+                                                inclusive = false,
+                                                saveState = false
+                                            )
+                                        }
+                                    },
+                                shape = RoundedCornerShape(20.dp),
+                                elevation = 1.dp
+                            ) {
+                                Column(
+                                    modifier = Modifier.padding(30.dp),
+                                    horizontalAlignment = Alignment.CenterHorizontally
+                                ) {
+                                    Icon(
+                                        painterResource(id = R.drawable.mail),
+                                        tint = blueButton,
+                                        contentDescription = "", modifier = Modifier.size(25.dp)
                                     )
-                                )
+                                    Divider(
+                                        color = Color.Transparent,
+                                        modifier = Modifier.height(10.dp)
+                                    )
+
+                                    Text(
+                                        text = Constants.email_us.capitalize(), style = TextStyle(
+                                            color = colorResource(
+                                                id = R.color.default_text_color
+                                            ),
+                                            fontWeight = FontWeight.Bold,
+                                            fontSize = 16.sp
+                                        )
+                                    )
+                                }
+                            }
+
+                            Card(
+                                modifier = Modifier
+                                    .weight(1f)
+                                    .padding(10.dp),
+                                shape = RoundedCornerShape(20.dp),
+                                elevation = 1.dp
+                            ) {
+                                Column(
+                                    modifier = Modifier.padding(30.dp),
+                                    horizontalAlignment = Alignment.CenterHorizontally
+                                ) {
+                                    Icon(
+                                        painterResource(id = R.drawable.briefcase),
+                                        tint = blueButton,
+                                        contentDescription = "", modifier = Modifier.size(25.dp)
+                                    )
+                                    Divider(
+                                        color = Color.Transparent,
+                                        modifier = Modifier.height(10.dp)
+                                    )
+
+                                    Text(
+                                        text = Constants.business.capitalize(), style = TextStyle(
+                                            color = colorResource(
+                                                id = R.color.default_text_color
+                                            ),
+                                            fontWeight = FontWeight.Bold,
+                                            fontSize = 16.sp
+                                        )
+                                    )
+                                }
                             }
                         }
                     }
@@ -211,6 +259,8 @@ fun HelpContactScreen(onBack: () -> Unit, navController: NavHostController) {
 
 
             }
+
+
         }
 
     }

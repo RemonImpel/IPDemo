@@ -68,7 +68,7 @@ fun ReportSuccessScreen(onBack: () -> Unit) {
         ) {
             Image(
                 painterResource(id = R.drawable.ip_police_ok),
-                modifier = Modifier.size(200.dp),
+                modifier = Modifier.size((ScreenSize.height()/3).dp),
                 contentDescription = ""
             )
 

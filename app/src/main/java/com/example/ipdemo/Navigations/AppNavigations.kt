@@ -30,11 +30,11 @@ fun IPApp(
     notificationStateController: NotificationStateController,
     navController: NavHostController = rememberNavController()
 ) {
-    Scaffold() { innerpadding ->
+    Scaffold() { paddingValues ->
         NavHost(
             navController = navController,
-            startDestination = Screens.SETTINGS.name,
-            modifier = Modifier.padding(innerpadding)
+            startDestination = Screens.REPORTPROBLEM.name,
+            modifier = Modifier.padding(paddingValues)
         ) {
 
             composable(route = Screens.SETTINGS.name) {

@@ -46,7 +46,7 @@ fun ReportProblemScreen(onBack: () -> Unit, navController: NavHostController) {
                 colors = ButtonDefaults.buttonColors(blueButton),
                 onClick = {
 
-                    navController.navigate(Screens.REPORTSUCCESSSCREEN.name){
+                    navController.navigate(Screens.REPORTSUCCESSSCREEN.name) {
                         navController.popBackStack(
                             Screens.SETTINGS.name,
                             inclusive = false,
@@ -111,26 +111,28 @@ fun ReportProblemScreen(onBack: () -> Unit, navController: NavHostController) {
 
                     Divider(color = Color.Transparent, modifier = Modifier.height(25.dp))
 
-                    OutlinedTextField(
-                        shape = RoundedCornerShape(15.dp),
-                        colors = TextFieldDefaults.textFieldColors(
-                            backgroundColor = Color.White,
-                            focusedIndicatorColor = Color.White,
-                            unfocusedIndicatorColor = Color.White,
-                            cursorColor = Color.Black
-                        ),
-                        value = issue,
-                        onValueChange = { issue = it },
-                        placeholder = {
-                            Text(
-                                text = Constants.describe.capitalize(),
-                                style = TextStyle(fontSize = 14.sp)
-                            )
-                        },
-                        modifier = Modifier
-                            .fillMaxWidth()
-                            .height((ScreenSize.height() / 3).dp)
-                    )
+                    Card(shape = RoundedCornerShape(15.dp)) {
+                        OutlinedTextField(
+
+                            colors = TextFieldDefaults.textFieldColors(
+                                backgroundColor = Color.White,
+                                focusedIndicatorColor = Color.White,
+                                unfocusedIndicatorColor = Color.White,
+                                cursorColor = Color.Black
+                            ),
+                            value = issue,
+                            onValueChange = { issue = it },
+                            placeholder = {
+                                Text(
+                                    text = Constants.describe.capitalize(),
+                                    style = TextStyle(fontSize = 14.sp)
+                                )
+                            },
+                            modifier = Modifier
+                                .fillMaxWidth()
+                                .height((ScreenSize.height() / 3).dp)
+                        )
+                    }
 
                     Divider(color = Color.Transparent, modifier = Modifier.height(25.dp))
 
@@ -138,16 +140,6 @@ fun ReportProblemScreen(onBack: () -> Unit, navController: NavHostController) {
                         modifier = Modifier.fillMaxWidth(),
                         horizontalArrangement = Arrangement.Center
                     ) {
-
-//                        Text(
-//                            text = Constants.note.capitalize(), style = TextStyle(
-//                                fontSize = 14.sp,
-//                                lineHeight = 25.sp,
-//                                letterSpacing = .5.sp,
-//                                textAlign = TextAlign.Center,
-//                                fontWeight = FontWeight.Bold
-//                            )
-//                        )
 
                         Text(
                             text = Constants.note.capitalize() + ": " + Constants.tech_issue_note.capitalize(),

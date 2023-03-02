@@ -643,8 +643,8 @@ fun notificationDeniedDialog(
                     Image(
                         painter = painterResource(id = R.drawable.ip_police_cross),
                         contentDescription = "",
-                        modifier = Modifier.height(200.dp),
-                        contentScale = ContentScale.Crop
+                        modifier = Modifier.size((ScreenSize.height()/3).dp),
+                        //contentScale = ContentScale.Crop
                     )
 
                     Row(modifier = Modifier.fillMaxWidth()) {
