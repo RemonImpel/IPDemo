@@ -237,7 +237,7 @@ fun FAQScreen(onBack: () -> Unit) {
                                                 text = item.questions[i].question,
                                                 style = TextStyle(
                                                     color = blueButton,
-                                                    fontWeight = FontWeight.Bold,
+                                                    //fontWeight = FontWeight.Bold,
                                                     fontSize = 16.sp
                                                 )
                                             )
@@ -259,7 +259,7 @@ fun FAQScreen(onBack: () -> Unit) {
                                                 text = item.questions[i].answer,
                                                 style = TextStyle(
                                                     color = Color.Black,
-                                                    fontSize = 12.sp
+                                                    fontSize = 14.sp
                                                 ),
                                                 modifier = Modifier.padding(15.dp)
                                             )
