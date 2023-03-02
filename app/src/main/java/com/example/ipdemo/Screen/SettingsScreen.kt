@@ -518,27 +518,38 @@ fun notificationPermissionDialog(
 
                     Divider(
                         color = Color.LightGray,
-                        modifier = Modifier.padding(top = 10.dp)
+                        modifier = Modifier.padding(top = 10.dp),
+                        thickness = 1.dp
                     )
 
-                    Box(modifier = Modifier.fillMaxWidth()) {
-                        Row(modifier = Modifier.fillMaxWidth()) {
-                            TextButton(
-                                onClick = { onDismissRequest(permissionDialogState) },
-                                modifier = Modifier.weight(1f)
-                            ) {
-                                Text(text = "Don't Allow", style = TextStyle(color = blueButton))
-                            }
+                    Row(modifier = Modifier
+                        .fillMaxWidth()
+                        .height(50.dp)) {
+                        TextButton(
+                            onClick = { onDismissRequest(permissionDialogState) },
+                            modifier = Modifier
+                                .weight(1f)
+                                .fillMaxHeight()
+                        ) {
+                            Text(text = "Don't Allow", style = TextStyle(color = blueButton))
+                        }
 
 
-                            TextButton(onClick = {
-                                sessionManagement.saveNotificationState(true)
-                                onDismissRequest(permissionDialogState)
-                                notificationStateController.setState(true)
+                        Divider(
+                            color = Color.LightGray,
+                            modifier = Modifier.fillMaxHeight().width(1.dp)
+                        )
 
-                            }, modifier = Modifier.weight(1f)) {
-                                Text(text = "OK", style = TextStyle(color = blueButton))
-                            }
+
+                        TextButton(onClick = {
+                            sessionManagement.saveNotificationState(true)
+                            onDismissRequest(permissionDialogState)
+                            notificationStateController.setState(true)
+
+                        }, modifier = Modifier
+                            .weight(1f)
+                            .fillMaxHeight()) {
+                            Text(text = "OK", style = TextStyle(color = blueButton))
                         }
                     }
                 }
@@ -643,7 +654,7 @@ fun notificationDeniedDialog(
                     Image(
                         painter = painterResource(id = R.drawable.ip_police_cross),
                         contentDescription = "",
-                        modifier = Modifier.size((ScreenSize.height()/3).dp),
+                        modifier = Modifier.size((ScreenSize.height() / 3).dp),
                         //contentScale = ContentScale.Crop
                     )
 
