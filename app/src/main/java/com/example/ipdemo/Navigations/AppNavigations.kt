@@ -33,7 +33,7 @@ fun IPApp(
     Scaffold() { paddingValues ->
         NavHost(
             navController = navController,
-            startDestination = Screens.REPORTPROBLEM.name,
+            startDestination = Screens.SETTINGS.name,
             modifier = Modifier.padding(paddingValues)
         ) {
 
