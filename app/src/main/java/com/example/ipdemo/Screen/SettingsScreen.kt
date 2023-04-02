@@ -382,7 +382,8 @@ fun customItemCard(
                 }
 
                 if (title == Constants.terms_of_use) {
-                    navController.navigate(Screens.TERMSOFUSE.name)
+                    var name = "hi"
+                    navController.navigate(Screens.TERMSOFUSE.name+"/$name")
                 }
             },
         shape = RoundedCornerShape(16.dp),

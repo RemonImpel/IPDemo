@@ -5,9 +5,11 @@ import androidx.compose.material.Scaffold
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.navigation.NavHostController
+import androidx.navigation.NavType
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
+import androidx.navigation.navArgument
 import com.example.ipdemo.Helpers.NotificationStateController
 import com.example.ipdemo.Screen.*
 
@@ -89,11 +91,17 @@ fun IPApp(
                 }, navController)
             }
 
-            composable(route = Screens.TERMSOFUSE.name) {
-
+            composable(
+                route = Screens.TERMSOFUSE.name + "/{name}",
+                arguments = listOf(navArgument("name") {
+                type = NavType.StringType
+                })
+            ) {
+                val name = requireNotNull(it.arguments).getString("name")
                 TermsOfUseScreen(
                     onBack = { navController.navigateUp() },
-                    navController
+                    navController,
+                    name
                 )
 
             }

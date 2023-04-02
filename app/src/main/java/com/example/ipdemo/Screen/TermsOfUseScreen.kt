@@ -4,6 +4,7 @@ import android.annotation.SuppressLint
 import android.view.ViewGroup
 import android.webkit.WebView
 import android.webkit.WebViewClient
+import android.widget.Toast
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
@@ -40,9 +41,12 @@ import com.example.ipdemo.ui.theme.gradientBottomColor
 @Composable
 fun TermsOfUseScreen(
     onBack: () -> Unit,
-    navController: NavHostController
+    navController: NavHostController,
+    name: String?
 ) {
 
+    var context = LocalContext.current
+    Toast.makeText(context, name, Toast.LENGTH_SHORT).show()
 
     var privacyPolicyDialogState by remember {
         mutableStateOf(false)
